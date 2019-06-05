@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="background-image: url(bg.jpg);">
+<div>
+	<span>Очки:</span>
+	<span class="score"></span>
+</div>
+<div>
+	<span>Жуки:</span>
+	<span class="kolich"></span>
+</div>
+<script type="text/javascript">
+	let juki=0;
+	let ochko=0;
+	let kolich= document.querySelector(".kolich");
+	let score= document.querySelector(".score");
+	let create= function(){
+		let newImg = document.createElement("img");
+	document.body.appendChild(newImg);
+	newImg.src ="img.svg";
+	newImg.style.height ="50px";
+	let round = Math.round(Math.random()*1300);
+	let round_top= Math.round(Math.random()*700)
+	newImg.style.marginLeft = round+"px";
+	newImg.style.marginTop=round_top+"px";
+	newImg.style.position="absolute";
+	juki=juki+1;
+	kolich.innerHTML= juki;
+	newImg.onclick = function(){
+		newImg.style.display="none";
+		ochko=ochko+1;
+		score.innerHTML= ochko;
+	}
+	}
+	let proverka=function(){
+		if (ochko >= 10) {
+	alert("Молодец")
+} 
+	else alert("Фууу");
+	}
+	setInterval(create,1000);
+	setTimeout(proverka,10000);
+</script>
+</body>
+</html>
